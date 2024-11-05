@@ -5,8 +5,30 @@ test> use newname
 
 newname> db.createCollection("mycollect")
 
-newname> db.createCollection("mycollect")
 
-newname> db.mycollect.insertOne({name:"Sarath",age:"22",profession:"Student"})
+db.mycollect.insertOne({name:"Sarath",age:"22",profession:"Student"})
 
-newname> db.mycollect.insertMany([{name:"S",age:"20",profession:"Student"},{name:"abey",profession:"student"},{name:"Nihal",age:"30"}])
+ db.mycollect.insertMany([{name:"S",age:"20",profession:"Student"},{name:"abey",profession:"student"},{name:"Nihal",age:"30"}])
+
+
+db.mycollect.find()
+
+newname> db.mycollect.find( ObjectId('6729b2486439193cff0d8190'))
+
+newname> db.mycollect.find({_id: ObjectId('6729b2486439193cff0d8190')})
+
+newname> db.mycollect.find({$and:[{age:"22"},{name:"Sarath"}]})
+
+newname> db.mycollect.find({ $or: [{ age: "22" }, { name: "Sarath" }] })
+
+newname> db.mycollect.find({age:{$gte:"10",$lte:"40"}})
+
+db.mycollect.find({profession: { $in: ["Testing"] }})
+
+newname> db.mycollect.find({name: { $nin: ["Testing"] }}) //not in 
+
+newname> db.mycollect.find({name: { $ne: ["Testing"] }}) //not equal to
+
+newname> db.mycollect.find().limit(2)
+
+db.mycollect.find().sort({age:1,name:-1})
