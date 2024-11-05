@@ -32,3 +32,36 @@ newname> db.mycollect.find({name: { $ne: ["Testing"] }}) //not equal to
 newname> db.mycollect.find().limit(2)
 
 db.mycollect.find().sort({age:1,name:-1})
+
+newname> db.mycollect.find().skip(2)
+
+db.mycollect.find().skip(2).limit(3)
+
+newname> db.mycollect.find({name:'/^ab/i'}) for finding starting with ab
+
+newname> db.mycollect.find({name:"Sarath"},{name:1,age:1})//only name and age not profession
+
+ db.mycollect.find({age:{$exists:true}},{name:1,age:1})//age exixts
+
+ db.mycollect.updateOne({age:23},{$set:{age:24}})
+
+ db.mycollect.updateMany({profession:{$exists:true}},{$unset:{profession:""}})
+
+db.mycollect.updateOne({name:"Sarath"},{$rename:{name:"Sarath Chandran M"}})
+
+db.mycollect.updateOne(
+  { name: "Sarath Chandran M" },
+  { $addToSet: { hobbies: "games" } }
+)
+
+
+newname> db.mycollect.updateOne({name:"abey"},{$push:{hobbies:{$each:["games","Gardening"]}}})
+
+
+newname> db.mycollect.updateOne({name:"abey"},{$pull:{hobbies:"games"}})
+
+
+
+
+
+
