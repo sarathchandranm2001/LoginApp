@@ -1,0 +1,2 @@
+npm install nodemon -d
+npm install express express-session body-parse 
