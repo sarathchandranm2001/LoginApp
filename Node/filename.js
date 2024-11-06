@@ -3,6 +3,7 @@ console.log(__dirname)
 //important
 const path=require("path")
 const fs=require("fs")//catching error
+const user="sar"
 
 /*fs.mkdir(path.join(__dirname, "/api2"), (err) => {
     if (err) throw err;
@@ -32,4 +33,8 @@ fs.mkdir(path.join(__dirname,"/api3/api4"),{recursive:true},(err)=>{
 fs.writeFile(path.join(__dirname,"/api","api.txt"),"Username : Sarath Chandran M",(err)=>{
     if(err) throw err;
 })
-
+//
+fs.writeFile(path.join(__dirname, "/api", "api.txt"), `name: ${user}`, (err) => {
+    if (err) throw err;
+    console.log("File written successfully!");
+});
